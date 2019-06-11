@@ -28,8 +28,10 @@ explore: inventory_items {
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
     relationship: many_to_one
   }
+
 }
 
+# STUFF
 explore: order_items {
   join: orders {
     type: left_outer

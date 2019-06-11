@@ -26,6 +26,9 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
 
+  parameter: pizza {
+    type: string
+  }
   dimension: user_id {
     type: number
     # hidden: yes

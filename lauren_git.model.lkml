@@ -15,6 +15,9 @@ explore: connection_reg_r3 {}
 explore: derived_test_table_3_20190510 {}
 
 explore: events {
+
+
+
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
@@ -31,6 +34,9 @@ explore: inventory_items {
 }
 
 explore: order_items {
+
+  sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;
+
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;

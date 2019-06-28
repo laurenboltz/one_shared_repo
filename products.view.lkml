@@ -42,6 +42,22 @@ view: products {
     sql: ${TABLE}.sku ;;
   }
 
+  measure: total_spend {
+    type: sum
+    sql: ${retail_price} ;;
+  }
+
+  measure: big_total {
+    type: yesno
+    sql: ${total_spend} > 10 ;;
+  }
+
+  measure: is_active {
+    type: string
+    sql: CASE WHEN ${big_total} THEN "Active"
+    Else "unactive"
+    end;;
+  }
   measure: count {
     type: count
     drill_fields: [id, item_name, inventory_items.count]

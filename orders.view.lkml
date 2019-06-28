@@ -35,8 +35,32 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
+  measure: is_big_count {
+    type: yesno
+    sql:sql: ${count} > 10   ;;
+  }
+
+  measure: is_active {
+    type: string
+    sql:  CASE WHEN ${is_big_count} THEN "Active"
+    ELSE "Inactive"
+    END;;
+  }
+
+  measure: number {
+   type:  number
+  sql: ${count}*199 ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
   }
+
+  measure: number_concat {
+    type: string
+    sql: concat(convert(${count},char),',',convert(${number},char));;
+  }
+
+
 }

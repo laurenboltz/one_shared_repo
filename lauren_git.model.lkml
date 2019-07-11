@@ -35,7 +35,7 @@ explore: inventory_items {
 
 explore: order_items {
 
-  sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;
+#   sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;
 
   join: orders {
     type: left_outer

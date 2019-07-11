@@ -16,7 +16,8 @@ view: orders {
       week,
       month,
       quarter,
-      year
+      year,
+      day_of_week_index
     ]
     sql: ${TABLE}.created_at ;;
   }
@@ -35,6 +36,12 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
 
+
+#   dimension: lala% {
+#     type: number
+#     sql: ${TABLE}.user_id ;;
+#   }
+
   measure: is_big_count {
     type: yesno
     sql:sql: ${count} > 10   ;;
@@ -51,6 +58,7 @@ view: orders {
    type:  number
   sql: ${count}*199 ;;
   }
+
 
   measure: count {
     type: count

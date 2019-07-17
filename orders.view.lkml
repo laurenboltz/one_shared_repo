@@ -7,6 +7,10 @@ view: orders {
     sql: ${TABLE}.id ;;
   }
 
+  parameter: test {
+    type: date
+    default_value: "Null"
+  }
   dimension_group: created {
     type: time
     timeframes: [

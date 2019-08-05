@@ -15,8 +15,10 @@ explore: connection_reg_r3 {}
 explore: derived_test_table_3_20190510 {}
 
 explore: sales_info {
-  access_filter: {field:sales_info.first_name
-    user_attribute:access_level}
+  access_filter: {
+    field:sales_info.first_name
+    user_attribute:access_level
+    }
 }
 
 explore: events {

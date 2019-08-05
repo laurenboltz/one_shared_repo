@@ -10,7 +10,16 @@ view: orders {
   parameter: test {
     type: date
     default_value: "Null"
+    allowed_value: {
+      label: "Null"
+      value: "Null"
+    }
   }
+
+  dimension: parameter {
+    sql:  {% parameter test %} ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [

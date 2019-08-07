@@ -35,6 +35,11 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: period_test {
+    type: number
+    sql: FLOOR( DATEDIFF(CURRENT_DATE(), ${created_raw}) / 30 );;
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;

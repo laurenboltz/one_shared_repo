@@ -75,7 +75,7 @@ view: users {
   measure: average_age {
     type: average
     sql: ${age} ;;
-    value_format: "#0.00"
+    value_format_name: decimal_2
   }
 
   # ----- Sets of fields for drilling ------

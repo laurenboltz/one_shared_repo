@@ -43,6 +43,30 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  dimension: gross_margin {
+    type: number
+    value_format_name: usd
+    sql: ${sale_price} - ${inventory_items.cost} ;;
+  }
+
+  dimension: gross_margin_tier {
+    type: tier
+    sql: ${gross_margin} ;;
+    tiers: [0, 50, 100, 200, 400]
+  }
+
+  measure: percent_of_total_gm {
+    type: percent_of_total
+    sql: ${total_gross_margin} ;;
+  }
+
+  measure: total_gross_margin {
+    type: sum
+    value_format_name: decimal_2
+    sql: ${gross_margin} ;;
+    html: {{ rendered_value }} || {{ percent_of_total_gm._rendered_value }} of total>> ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]

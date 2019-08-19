@@ -56,7 +56,7 @@ view: order_items {
     }
     allowed_value: {
       label: "Total Gross Margin"
-      value: "gross_margin"
+      value: "sale_price"
     }
   }
 
@@ -110,6 +110,8 @@ view: order_items {
     value_format_name: usd
     sql: ${sale_price} - ${inventory_items.cost} ;;
   }
+
+
 
   dimension: gross_margin_tier {
     type: tier

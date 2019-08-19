@@ -43,6 +43,34 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+
+  parameter: measure_type {
+    suggestions: ["sum","average","count","min","max"]
+  }
+
+  parameter: dimension_to_aggregate {
+    type: unquoted
+    allowed_value: {
+      label: "Total Sale Price"
+      value: "sale_price"
+    }
+    allowed_value: {
+      label: "Total Gross Margin"
+      value: "gross_margin"
+    }
+  }
+
+  measure: dynamic_agg {
+    type: number
+    label_from_parameter: dimension_to_aggregate
+    sql: case when {% condition measure_type %} 'sum' {% endcondition %} then sum( ${TABLE}.{% parameter dimension_to_aggregate %})
+          when {% condition measure_type %} 'average' {% endcondition %} then avg( ${TABLE}.{% parameter dimension_to_aggregate %})
+          when {% condition measure_type %} 'count' {% endcondition %} then count( ${TABLE}.{% parameter dimension_to_aggregate %})
+          when {% condition measure_type %} 'min' {% endcondition %} then min( ${TABLE}.{% parameter dimension_to_aggregate %})
+          when {% condition measure_type %} 'max' {% endcondition %} then max( ${TABLE}.{% parameter dimension_to_aggregate %})
+          else null end;;
+  }
+
   dimension: gross_margin {
     type: number
     value_format_name: usd

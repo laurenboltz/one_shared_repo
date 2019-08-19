@@ -43,6 +43,10 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  dimension: gross_margin {
+    type: number
+    sql: ${TABLE}.sale_price ;;
+  }
 
   parameter: measure_type {
     suggestions: ["sum","average","count","min","max"]
@@ -56,7 +60,7 @@ view: order_items {
     }
     allowed_value: {
       label: "Total Gross Margin"
-      value: "sale_price"
+      value: "gross_margin"
     }
   }
 
@@ -105,7 +109,7 @@ view: order_items {
     {% endif %};;
   }
 
-  dimension: gross_margin {
+  dimension: gross_margin1 {
     type: number
     value_format_name: usd
     sql: ${sale_price} - ${inventory_items.cost} ;;

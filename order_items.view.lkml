@@ -74,7 +74,7 @@ view: order_items {
   measure: total_revenue {
     hidden: yes
     type: sum
-    sql: ${TABLE}.revenue ;;
+    sql: ${TABLE}.sale_price ;;
   }
 
   measure: total_users {

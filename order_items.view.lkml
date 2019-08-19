@@ -60,7 +60,7 @@ view: order_items {
     }
     allowed_value: {
       label: "Total Gross Margin"
-      value: "gross_margin"
+      value: "sale_price"
     }
   }
 

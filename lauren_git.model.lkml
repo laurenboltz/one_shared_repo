@@ -10,16 +10,7 @@ datagroup: lauren_git_default_datagroup {
 
 persist_with: lauren_git_default_datagroup
 
-explore: connection_reg_r3 {}
 
-explore: derived_test_table_3_20190510 {}
-
-explore: sales_info {
-  access_filter: {
-    field:sales_info.first_name
-    user_attribute:access_level
-    }
-}
 
 explore: events {
 
@@ -79,7 +70,6 @@ explore: orders {
 
 explore: products {}
 
-explore: schema_migrations {}
 
 explore: user_data {
   join: users {

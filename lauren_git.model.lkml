@@ -92,11 +92,3 @@ explore: user_data {
 explore: users {}
 
 explore: users_nn {}
-
-explore: zozo_table_20190507 {}
-
-explore: zozo_table_20190508 {}
-
-explore: zozo_table_20190509 {}
-
-explore: zozo_table_null {}

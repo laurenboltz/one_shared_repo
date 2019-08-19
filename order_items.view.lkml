@@ -71,6 +71,40 @@ view: order_items {
           else null end;;
   }
 
+  measure: total_revenue {
+    hidden: yes
+    type: sum
+    sql: ${TABLE}.revenue ;;
+  }
+
+  measure: total_users {
+    hidden: yes
+    type: count_distinct
+    sql: ${users.id};;
+  }
+
+  parameter: main_metric_selector {
+    type: unquoted
+    allowed_value: {
+      label: "Total Revenue"
+      value: "total_revenue"
+    }
+    allowed_value: {
+      label: "Total Users"
+      value: "total_users"
+    }
+  }
+
+  measure: dynamic_measure {
+    label_from_parameter: main_metric_selector
+    sql:
+    {% if main_metric_selector._parameter_value == 'total_revenue' %}
+      ${total_revenue}
+    {% else %}
+      ${total_users}
+    {% endif %};;
+  }
+
   dimension: gross_margin {
     type: number
     value_format_name: usd

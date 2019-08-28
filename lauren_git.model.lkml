@@ -69,7 +69,9 @@ explore: orders {
   }
 }
 
-explore: products {}
+explore: products {
+  view_name: products
+}
 
 
 explore: user_data {
@@ -80,6 +82,24 @@ explore: user_data {
   }
 }
 
-explore: users {}
+explore: users {
+  view_name: users
+}
 
 explore: users_nn {}
+
+explore: great_explore {
+  extends: [products]
+}
+
+explore: payments_and_users{
+  extends: [products]
+}
+
+explore: order_items_facts {
+  extends: [users]
+}
+
+explore: users_orders_facts {
+  extends: [users]
+}

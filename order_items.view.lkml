@@ -149,4 +149,27 @@ view: order_items {
     type: number
     sql: {% parameter max_rank %} ;;
   }
+
+  parameter: view_label {
+    type: string
+    default_value: "This Shouldn't Work"
+  }
+
+  dimension: cost {
+    view_label: "{% parameter view_label %}"
+    type: number
+    sql: ${inventory_items.cost};;
+  }
+
+  dimension: cost_ex_vat {
+    view_label: "{% parameter view_label %}"
+    type: number
+    sql: ${inventory_items.cost} ;;
+  }
+
+  dimension: cost_eur {
+    view_label: "{% parameter view_label %}"
+    type: number
+    sql: ${inventory_items.cost} ;;
+  }
 }

@@ -151,24 +151,27 @@ view: order_items {
   }
 
   parameter: view_label {
-    type: string
-    default_value: "This Shouldn't Work"
+    type: unquoted
+    default_value: "This_Shouldnt_Work"
   }
 
   dimension: cost {
-    view_label: "{% parameter view_label %}"
+    group_label: "{% parameter view_label %}"
+    group_item_label: "{% parameter view_label %}"
     type: number
     sql: ${inventory_items.cost};;
   }
 
   dimension: cost_ex_vat {
-    view_label: "{% parameter view_label %}"
+    group_label: "{% parameter view_label %}"
+    group_item_label: "{% parameter view_label %}"
     type: number
     sql: ${inventory_items.cost} ;;
   }
 
   dimension: cost_eur {
-    view_label: "{% parameter view_label %}"
+    group_label: "{% parameter view_label %}"
+    group_item_label: "{% parameter view_label %}"
     type: number
     sql: ${inventory_items.cost} ;;
   }

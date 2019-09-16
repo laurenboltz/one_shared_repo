@@ -86,7 +86,9 @@ explore: users {
   view_name: users
 }
 
-explore: users_nn {}
+explore: users_nn {
+  label: "Today Users"
+}
 
 explore: great_explore {
   extends: [products]
@@ -101,5 +103,17 @@ explore: order_items_facts {
 }
 
 explore: users_orders_facts {
+  extends: [users]
+}
+
+explore: orders_and_products {
+  extends: [products]
+}
+
+explore: payment_details {
+  extends: [products]
+}
+
+explore: user_details {
   extends: [users]
 }

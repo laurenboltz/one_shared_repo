@@ -15,7 +15,7 @@ view: users {
   dimension: age_tier {
     type: tier
     tiers: [0, 10, 20, 30, 40, 50, 60, 70, 80]
-    style: classic # the default value, could be excluded
+    style: integer  # the default value, could be excluded
     sql: ${age} ;;
   }
 

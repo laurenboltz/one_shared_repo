@@ -1,18 +1,4 @@
-connection: "thelook"
-
-# include all the views
 include: "*.view"
-label: "limited-connection"
-
-datagroup: lauren_git_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
-}
-
-persist_with: lauren_git_default_datagroup
-
-
-
 explore: events {
 
 

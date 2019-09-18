@@ -5,9 +5,9 @@ view: lkml_ndt {
         column: count {}
       }
     }
-    dimension: id {
-      type: number
-    }
+#     dimension: id {
+#       type: number
+#     }
     dimension: count {
       type: number
     }

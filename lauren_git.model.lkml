@@ -89,3 +89,5 @@ explore: users {
 explore: users_nn {
   label: "Today Users"
 }
+
+explore: lkml_ndt {}

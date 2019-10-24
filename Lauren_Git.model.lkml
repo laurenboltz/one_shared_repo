@@ -36,6 +36,7 @@ explore: order_items {
 
 #   sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;
 
+
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;
@@ -67,6 +68,7 @@ explore: orders {
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+
 }
 
 explore: products {

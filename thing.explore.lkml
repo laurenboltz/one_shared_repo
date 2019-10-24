@@ -22,6 +22,12 @@ explore: order_items {
 
 #   sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;
 
+  join: lkml_ndt {
+    type: left_outer
+    sql_on: ${order_items.id} = ${lkml_ndt.id} ;;
+    relationship: one_to_one
+  }
+
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;
@@ -45,6 +51,8 @@ explore: order_items {
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
     relationship: many_to_one
   }
+
+
 }
 
 explore: orders {

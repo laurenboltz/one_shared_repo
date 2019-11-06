@@ -97,6 +97,10 @@ view: users {
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
+    link: {
+      label: "Google"
+      url: "www.google.com"
+    }
   }
 
   measure: count {

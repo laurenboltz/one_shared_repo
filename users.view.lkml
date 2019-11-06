@@ -30,6 +30,23 @@ view: users {
     sql: ${TABLE}.country ;;
   }
 
+  dimension: dummy_three {
+    case: {
+      when: {
+        label: "Count"
+        sql: 1=1 ;;
+      }
+      when: {
+        label: "Count Inventory Items"
+        sql: 1=1 ;;
+      }
+      when: {
+        label: "Count Orders"
+        sql: 1=1 ;;
+      }
+    }
+  }
+
   dimension_group: created {
     type: time
     timeframes: [

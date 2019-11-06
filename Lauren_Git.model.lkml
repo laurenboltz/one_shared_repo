@@ -74,22 +74,3 @@ explore: orders {
 explore: products {
   view_name: products
 }
-
-
-explore: user_data {
-  join: users {
-    type: left_outer
-    sql_on: ${user_data.user_id} = ${users.id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: users {
-  view_name: users
-}
-
-explore: users_nn {
-  label: "Today Users"
-}
-
-explore: lkml_ndt {}

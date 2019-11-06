@@ -88,6 +88,10 @@ view: users {
       label: "Drill Dashboard"
       url: "/dashboards/2484?State={{ value }}&Age={{ _filters['users.age'] | url_encode }}"
     }
+    link: {
+      label: "google"
+      url: "www.google.com"
+    }
   }
 
   dimension: zip {

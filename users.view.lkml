@@ -84,6 +84,10 @@ view: users {
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;
+    link: {
+      label: "Drill Dashboard"
+      url: "/dashboards/1114?State={{ value }}&Age={{ _filters['users.age'] | url_encode }}"
+    }
   }
 
   dimension: zip {

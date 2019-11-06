@@ -86,7 +86,7 @@ view: users {
     sql: ${TABLE}.state ;;
     link: {
       label: "Drill Dashboard"
-      url: "/dashboards/1114?State={{ value }}&Age={{ _filters['users.age'] | url_encode }}"
+      url: "/dashboards/2484?State={{ value }}&Age={{ _filters['users.age'] | url_encode }}"
     }
   }
 

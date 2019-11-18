@@ -101,17 +101,7 @@ view: users {
 measure: user_cities {
   type: list
   list_field: city
-    html:
- {% assign words = {{value}} | split: ',' %}
-<ul>
-  {% for word in words %}
- <li>{{ word }}</li>
-  {% endfor %};;
-#   link: {
-#     label: "City Google Search"
-#     url: "http://www.google.com/search?q={{ value }}"
-#     icon_url: "http://google.com/favicon.ico"
-#   }
+
 }
 
 

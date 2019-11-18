@@ -30,22 +30,6 @@ view: users {
     sql: ${TABLE}.country ;;
   }
 
-  dimension: dummy_three {
-    case: {
-      when: {
-        label: "Count"
-        sql: 1=1 ;;
-      }
-      when: {
-        label: "Count Inventory Items"
-        sql: 1=1 ;;
-      }
-      when: {
-        label: "Count Orders"
-        sql: 1=1 ;;
-      }
-    }
-  }
 
   dimension_group: created {
     type: time
@@ -90,7 +74,7 @@ view: users {
     }
     link: {
       label: "Drill Dashboard"
-      url: "/dashboards/2484?State={{ vale }}&Age={{ _filters['users.age'] | url_encode }}"
+      url: "/dashboards/2484?State={{ value }}&Age={{ _filters['users.age'] | url_encode }}"
     }
 }
 
@@ -113,6 +97,23 @@ view: users {
     sql: ${age} ;;
     value_format_name: decimal_2
   }
+
+measure: user_cities {
+  type: list
+  list_field: city
+    html:
+ {% assign words = {{ value }} | split: ',' %}
+  <ul>
+  {% for word in words %}
+  <li> {{ word }} </li>
+  {% endfor %};;
+  link: {
+    label: "City Google Search"
+    url: "http://www.google.com/search?q={{ value }}"
+    icon_url: "http://google.com/favicon.ico"
+  }
+}
+
 
   # ----- Sets of fields for drilling ------
   set: detail {

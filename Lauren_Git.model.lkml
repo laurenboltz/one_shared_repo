@@ -11,9 +11,9 @@ datagroup: lauren_git_default_datagroup {
 persist_with: lauren_git_default_datagroup
 
 
+explore: city_list {}
 
 explore: events {
-
 
 
   join: users {
@@ -31,7 +31,8 @@ explore: inventory_items {
   }
 }
 
-explore: city_list {}
+
+
 explore: order_items {
 
 #   sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;

@@ -11,7 +11,7 @@ datagroup: lauren_git_default_datagroup {
 persist_with: lauren_git_default_datagroup
 
 
-explore: city_list {}
+explore: user_information {}
 
 explore: events {
 
@@ -68,6 +68,11 @@ explore: orders {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
+  }
+  join: user_information {
+    type: left_outer
+    sql_on: ${user_information.users_first_name} = ${users.first_name} ;;
+    relationship: one_to_one
   }
 
 }

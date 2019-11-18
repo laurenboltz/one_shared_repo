@@ -102,9 +102,10 @@ measure: user_cities {
   type: list
   list_field: city
     html:
- {% assign words = {{ value }} | split: ',' %}
+ {% assign words = {{value}} | split: ',' %}
+<ul>
   {% for word in words %}
- {{ word }}
+ <li>{{ word }}</li>
   {% endfor %};;
 #   link: {
 #     label: "City Google Search"

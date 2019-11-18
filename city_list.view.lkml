@@ -31,7 +31,7 @@ view: city_list {
   <li>{{ word }}</li>
   {% endfor %} ;;
     link: {
-      label: "City Google Search"
+      label: "City Google Search {{ value }}"
       url: "http://www.google.com/search?q={{ value }}"
       icon_url: "http://google.com/favicon.ico"
     }

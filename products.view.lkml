@@ -31,7 +31,7 @@ view: products {
     {% elsif brand._value == "Tommy Hilfiger"%}
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Tommy_hilfig_vectorlogo.svg/250px-Tommy_hilfig_vectorlogo.svg.png">
     {% else %}
-    <img src="https://images.yourstory.com/cs/2/930f35b0-6b3f-11e9-83be-416c2e530972/Untitled_design_(2)_(1)1559914904431.png?fm=png&auto=format">
+    <img src="https://images.yourstory.com/cs/2/930f35b0-6b3f-11e9-83be-416c2e530972/Untitled_design_(2)_(1)1559914904431.png?fm=png&auto=format" height="100%" width="200">
     {% endif %} ;;
   }
 

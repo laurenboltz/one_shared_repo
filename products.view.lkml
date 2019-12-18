@@ -1,5 +1,5 @@
 view: products {
-  sql_table_name: demo_db.products ;;
+  sql_table_name: thelook_events.products ;;
 
   dimension: id {
     primary_key: yes

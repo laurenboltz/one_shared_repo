@@ -1,5 +1,5 @@
 view: order_items {
-  sql_table_name: thelook_events.order_items ;;
+  sql_table_name: demo_db2.order_items ;;
 
   dimension: id {
     primary_key: yes

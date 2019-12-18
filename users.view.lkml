@@ -1,5 +1,5 @@
 view: users {
-  sql_table_name: thelook_events.users ;;
+  sql_table_name: demo_db2.users ;;
 
   dimension: id {
     primary_key: yes

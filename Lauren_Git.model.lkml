@@ -3,24 +3,23 @@ connection: "thelook"
 # include all the views
 include: "*.view"
 
-datagroup: lauren_git_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
-}
-
-persist_with: lauren_git_default_datagroup
-
-
-explore: user_information {}
 
 explore: events {
-
-
+  view_name: events
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+}
+
+explore: events_extended {
+extends: [events]
+from: events_extended
+join: orders {
+  relationship: many_to_one
+  sql_on: ${events.test_id} = ${orders.id} ;;
+}
 }
 
 explore: inventory_items {
@@ -32,11 +31,7 @@ explore: inventory_items {
 }
 
 
-
 explore: order_items {
-
-#   sql_always_where: ${orders.created_date} < TIMESTAMP('2019-05-01');;
-
 
   join: orders {
     type: left_outer
@@ -64,6 +59,7 @@ explore: order_items {
 }
 
 explore: orders {
+  view_name: orders
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
@@ -74,7 +70,10 @@ explore: orders {
     sql_on: ${user_information.users_first_name} = ${users.first_name} ;;
     relationship: one_to_one
   }
+}
 
+explore: transactions {
+  extends: [orders]
 }
 
 explore: products {

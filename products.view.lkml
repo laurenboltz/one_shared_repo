@@ -15,6 +15,21 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    link: {
+      label: "Dashboard B"
+      url:
+      "/dashboards/3538?Brand%20Filter={{ products.brand._filterable_value }}
+      &Category%20Filter={{ value | url_encode }}
+      &Date%20Filter={{ _filters['orders.created_date'] | url_encode }}"
+    }
+    link: {
+      label: "Explore Pt. 2"
+      url:
+      "/explore/Lauren_Git/order_items?fields=orders.created_date,products.category,products.brand,orders.count&f[orders.created_date]={{ _filters['orders.created_date'] }}
+      &f[products.category]={{ value | url_encode }}
+      &sorts=orders.created_date+desc&limit=500"
+
+    }
   }
 
   dimension: department {

@@ -76,9 +76,9 @@ view: order_items {
   }
 
   measure: total_revenue {
-    hidden: yes
     type: sum
     sql: ${TABLE}.sale_price ;;
+    value_format_name: usd
   }
 
   measure: total_users {
@@ -108,6 +108,7 @@ view: order_items {
       ${total_users}
     {% endif %};;
   }
+
 
   dimension: gross_margin1 {
     type: number

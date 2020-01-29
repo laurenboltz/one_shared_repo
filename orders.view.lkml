@@ -83,6 +83,7 @@ view: orders {
     drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
   }
 
+
   measure: number_concat {
     type: string
     sql: concat(convert(${count},char),',',convert(${number},char));;

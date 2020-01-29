@@ -65,6 +65,11 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: CONCAT(${first_name},' ',${last_name});;
+  }
+
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;
@@ -101,8 +106,13 @@ view: users {
 measure: user_cities {
   type: list
   list_field: city
-
 }
+
+  measure: measure_for_age {
+    description: "Use this age field for displaying age on the y-axis"
+    type: sum
+    sql: ${age} ;;
+  }
 
 
   # ----- Sets of fields for drilling ------

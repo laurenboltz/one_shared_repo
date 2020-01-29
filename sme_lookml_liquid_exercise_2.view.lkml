@@ -11,21 +11,45 @@ view: sme_lookml_liquid_exercise_2 {
       LEFT JOIN demo_db.products  AS products ON inventory_items.product_id = products.id
 
       WHERE
-        (((orders.created_at ) >= ((DATE_ADD(TIMESTAMP(DATE_FORMAT(DATE(NOW()),'%Y-01-01')),INTERVAL -2 year))) AND (orders.created_at ) < ((DATE_ADD(DATE_ADD(TIMESTAMP(DATE_FORMAT(DATE(NOW()),'%Y-01-01')),INTERVAL -2 year),INTERVAL 3 year)))))
+        {% condition date_filter %} orders.created_at {% endcondition %}
       GROUP BY 1,2,3
       ORDER BY DATE(orders.created_at ) DESC
        ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
+filter: date_filter {
+  type: date
+}
+
+filter: brand_selector {
+  type: string
+  suggest_dimension: products_brand
+  sql: {% condition brand_selector %} ${products_brand} {% endcondition %} ;;
+}
+
+parameter: country {
+  type: string
+  allowed_value: {
+    value: "EU"
   }
+  allowed_value: {
+    value: "US"
+  }
+}
 
   dimension: orders_created_date {
     type: date
     sql: ${TABLE}.`orders.created_date` ;;
-  }
+    html:
+    {% if country._parameter_value == "'US'" %}
+      {{rendered_value | date: "%m/%d/%Y" }}
+    {% elsif country._parameter_value == "'EU'" %}
+     {{rendered_value | date: "%d/%m/%Y" }}
+    {% else %}
+      {{ value }}
+    {% endif %};;
+}
+
 
   dimension: products_category {
     type: string
@@ -41,6 +65,12 @@ view: sme_lookml_liquid_exercise_2 {
     type: number
     sql: ${TABLE}.`orders.count` ;;
   }
+
+  measure: count {
+    type: count
+    drill_fields: [detail*]
+  }
+
 
   set: detail {
     fields: [orders_created_date, products_category, products_brand, orders_count]

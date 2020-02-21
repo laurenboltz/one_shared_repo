@@ -45,9 +45,9 @@ view: users {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: email {
+  dimension: value {
     type: string
-    sql: ${TABLE}.email ;;
+    sql: {{ value }} ;;
   }
 
   dimension: first_name {

@@ -13,4 +13,7 @@ measure: count_events {
   drill_fields: [event_set*]
   }
 
+set: id {
+  fields: [id]
+  }
 }
